@@ -1,0 +1,19 @@
+graft src
+
+include AUTHORS.rst
+include CHANGELOG.rst
+include README.md
+include MANIFEST.in
+
+exclude example.ipynb
+
+prune tests
+prune developer
+prune .tox
+
+exclude .gitattributes
+exclude .gitignore
+exclude tox.ini
+
+global-exclude *.py[cod] __pycache__/* *.so *.dylib
+

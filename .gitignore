@@ -1,0 +1,31 @@
+*.so
+*.egg-info
+*.npz
+*.lock
+*.dat
+
+# Cython generated files
+_cmath.c
+
+# Unit test / coverage reports
+.tox/
+.asv/
+.coverage.*
+.coverage
+coverage.xml
+report.xml
+
+# Ignore build and cache folders
+__pycache__/
+build/
+dist/
+sg_execution_times.rst
+
+# Allow scatterkit share text files
+!scatterkit/share/*.dat
+
+# editors and IDEs
+*.sw[a-z]
+*~
+.idea
+.vscode
