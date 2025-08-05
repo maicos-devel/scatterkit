@@ -22,7 +22,7 @@ dist/
 sg_execution_times.rst
 
 # Allow scatterkit share text files
-!scatterkit/share/*.dat
+!src/scatterkit/share/*.dat
 
 # editors and IDEs
 *.sw[a-z]
