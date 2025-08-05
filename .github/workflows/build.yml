@@ -55,10 +55,7 @@ jobs:
       - name: Install dependencies
         run: python -m pip install wheel build tox
 
-      - name: Build sdist
-        run: python -m build --sdist --outdir dist .
-
-      - name: Test build integrity
+      - name: Test build integrity and build sdist
         run: tox -e build
 
       - uses: actions/upload-artifact@v4
