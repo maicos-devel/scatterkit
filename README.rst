@@ -15,8 +15,8 @@ Documentation
 For details, tutorials, and examples, visit our official `documentation`_. We also
 provide the `latest documentation`_ for the current development version of MAICoS.
 
-.. _`documentation`: https://maicos-analysis.org
-.. _`latest documentation`: https://maicos-analysis.org/latest
+.. _`documentation`: https://scatterkit.readthedocs.io
+.. _`latest documentation`: https://scatterkit.readthedocs.io/en/latest
 
 .. inclusion-readme-installation-start
 
