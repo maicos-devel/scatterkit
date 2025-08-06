@@ -24,8 +24,8 @@ import matplotlib.pyplot as plt
 import MDAnalysis as mda
 from MDAnalysis.analysis.rdf import InterRDF
 
-import maicos
-from maicos.lib.math import atomic_form_factor, rdf_structure_factor
+from scatterkit.lib.math import atomic_form_factor, rdf_structure_factor
+import scatterkit
 
 # %%
 # The `water` system consists of 510 water molecules in the liquid state. The
@@ -47,10 +47,10 @@ group_H = u.select_atoms("type H*")
 # Extract small angle x-ray scattering (SAXS) intensities
 # -------------------------------------------------------
 #
-# Let us use the :class:`maicos.Saxs` class of MAICoS and apply it to all atoms in the
+# Let us use the :class:`scatterkit.Saxs` class of MAICoS and apply it to all atoms in the
 # system:
 
-saxs = maicos.Saxs(u.atoms).run(stop=30)
+saxs = scatterkit.Saxs(u.atoms).run(stop=30)
 
 # %%
 # .. Note::
@@ -109,13 +109,13 @@ fig1.show()
 # contributions individually. Let us calculate both oxygen and hydrogen contributions,
 # respectively:
 
-saxs_O = maicos.Saxs(group_O).run(stop=30)
-saxs_H = maicos.Saxs(group_H).run(stop=30)
+saxs_O = scatterkit.Saxs(group_O).run(stop=30)
+saxs_H = scatterkit.Saxs(group_H).run(stop=30)
 
 # %%
 # Let us plot the results for the structure factor, the squared atomic form factor as
 # well scattering intensities together. For computing the atomic form factor we will use
-# :func:`maicos.lib.math.atomic_form_factor`. Note that for the ``structure_factors``
+# :func:`scatterkit.lib.math.atomic_form_factor`. Note that for the ``structure_factors``
 # and the ``scattering_intensities` we access the results directly from the ``results``
 # attribute without storing them in individual variables as before:
 
@@ -192,7 +192,7 @@ rdf_oo = oo_inter_rdf.results.rdf
 # %%
 # We use ``exclude_same="residue"`` to exclude atomic self contributions resulting in a
 # large peak at 0. Next, we convert the RDF into a structure factor using
-# :func:`maicos.lib.math.rdf_structure_factor` and the number density of the
+# :func:`scatterkit.lib.math.rdf_structure_factor` and the number density of the
 # oxygens.
 
 density = group_O.n_atoms / u.trajectory.ts.volume
