@@ -3,10 +3,12 @@
 
 Maintainers
 -----------
+Kira Fischer
 MAICoS Developer Team 
 
 Developers
 ----------
+Philip Loche
 
 
 Contributors
