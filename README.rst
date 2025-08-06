@@ -59,16 +59,16 @@ Contributors
 
 Thanks to all contributors who make **Scatterkit** possible:
 
-.. image:: https://contrib.rocks/image?repo=maicos-devel/maicos
-   :target: https://github.com/maicos-devel/maicos/graphs/contributors
+.. image:: https://contrib.rocks/image?repo=maicos-devel/scatterkit
+   :target: https://github.com/maicos-devel/scatterkit/graphs/contributors
 
-.. |tests| image:: https://github.com/maicos-devel/maicos/workflows/Tests/badge.svg
+.. |tests| image:: https://github.com/maicos-devel/scatterkit/workflows/Tests/badge.svg
    :alt: GitHub Actions Tests Job Status
-   :target: https://github.com/maicos-devel/maicos/actions?query=branch%3Amain
+   :target: https://github.com/maicos-devel/scatterkit/actions?query=branch%3Amain
 
-.. |codecov| image:: https://codecov.io/gh/maicos-devel/maicos/graph/badge.svg?token=9AXPLF6CR3
+.. |codecov| image:: https://codecov.io/gh/maicos-devel/scatterkit/graph/badge.svg?token=9AXPLF6CR3
    :alt: Code coverage
-   :target: https://codecov.io/gh/maicos-devel/maicos
+   :target: https://codecov.io/gh/maicos-devel/scatterkit
 
 .. |docs-stable| image:: https://img.shields.io/badge/📚_Documentation-stable-success
    :alt: Documentation of stable released version
