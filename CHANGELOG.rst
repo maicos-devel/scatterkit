@@ -13,7 +13,7 @@ The rules for scatterkit's CHANGELOG file:
 
 v0.0.1 (2025/08/05)
 -------------------
-Kira Fischer
+Kira Fischer, Philip Loche
 
 - Migrated code from maicos to scatterkit
 
