@@ -3,7 +3,7 @@
 Saxs
 ####
 
-.. autoclass:: maicos.Saxs
+.. autoclass:: scatterkit.Saxs
     :members: +run, save
     :undoc-members:
     :show-inheritance:

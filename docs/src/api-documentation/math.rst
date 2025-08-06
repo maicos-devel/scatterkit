@@ -3,12 +3,12 @@
 Mathematical helper functions
 #############################
 
-.. automodule:: maicos.lib.math
+.. automodule:: scatterkit.lib.math
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: maicos.lib._cmath
+.. automodule:: scatterkit.lib._cmath
     :members:
     :undoc-members:
     :show-inheritance:

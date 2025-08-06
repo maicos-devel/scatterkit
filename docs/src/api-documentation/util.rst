@@ -3,7 +3,7 @@
 General helper functions
 ########################
 
-.. automodule:: maicos.lib.util
+.. automodule:: scatterkit.lib.util
     :members:
     :undoc-members:
     :show-inheritance:

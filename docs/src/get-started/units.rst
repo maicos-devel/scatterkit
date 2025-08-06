@@ -1,7 +1,7 @@
 Some conventions
 ----------------
 
-The base units of MAICoS are consistent with those of `MDAnalysis`_. Keeping inputs and
+The base units of Scatterkit are consistent with those of `MDAnalysis`_. Keeping inputs and
 outputs consistent with this set of units reduces ambiguity, so we encourage everyone to
 use them exclusively.
 

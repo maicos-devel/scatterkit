@@ -3,5 +3,5 @@
 Tables
 ######
 
-.. automodule:: maicos.lib.tables
+.. automodule:: scatterkit.lib.tables
     :members:

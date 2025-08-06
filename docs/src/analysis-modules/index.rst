@@ -3,7 +3,7 @@
 Analysis modules
 ################
 
-This is a list of all analysis modules provided by MAICoS. Note that we do not have an
+This is a list of all analysis modules provided by Scatterkit. Note that we do not have an
 example section for each module. Instead, we refer to :ref:`userdoc-how-to`.
 Once you understand the basic structure taught there, you can
 work with all modules. If not, feel free to raise an issue in GitHub_ or ask us on

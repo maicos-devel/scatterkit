@@ -94,7 +94,7 @@ pygments_style = "tango"
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "furo"
-html_title = "MAICoS"
+html_title = "Scatterkit"
 html_favicon = "../static/logo.ico"
 html_static_path = ["../static"]
 
@@ -124,7 +124,7 @@ html_css_files = [
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "MAICoSdoc"
+htmlhelp_basename = "Scatterkitdoc"
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -162,7 +162,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "scatterkit", "MAICoS Documentation", [author], 1)]
+man_pages = [(master_doc, "scatterkit", "Scatterkit Documentation", [author], 1)]
 
 
 # -- Options for Texinfo output ----------------------------------------------
@@ -173,10 +173,10 @@ man_pages = [(master_doc, "scatterkit", "MAICoS Documentation", [author], 1)]
 texinfo_documents = [
     (
         master_doc,
-        "MAICoS",
-        "MAICoS Documentation",
+        "Scatterkit",
+        "Scatterkit Documentation",
         author,
-        "MAICoS",
+        "Scatterkit",
         "One line description of project.",
         "Miscellaneous",
     ),

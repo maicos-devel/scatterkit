@@ -67,7 +67,7 @@ Simulations
 
 In simulations, the structure factor and scattering intensities
 :math:`S(\boldsymbol{q})` can be extracted directly from the positions of the particles.
-:class:`maicos.Saxs` calculates these factors. The calculated scattering intensities can
+:class:`scatterkit.Saxs` calculates these factors. The calculated scattering intensities can
 be directly compared to the experimental one without any further processing. In the
 following we derive the essential relations. We start with the scattering intensity
 which is expressed as
@@ -88,7 +88,7 @@ The scattering intensity can be evaluated for wave vectors :math:`\boldsymbol q 
 are the box lengths of cubic cells.
 
 .. Note::
-    :class:`maicos.Saxs` can analyze any cells by mapping coordinates back onto cubic
+    :class:`scatterkit.Saxs` can analyze any cells by mapping coordinates back onto cubic
     cells.
 
 The complex conjugate of the amplitude is
@@ -150,7 +150,7 @@ The element-specific coefficients :math:`a_{1,\dots,4}`, :math:`b_{1,\dots,4}` a
     The atomic form factor should not be confused with the atomic scattering factor or
     intensity (often anonymously called form factor). The scattering intensity depends
     strongly on the distribution of atoms and can be computed using
-    :class:`maicos.Saxs`.
+    :class:`scatterkit.Saxs`.
 
 ----------------------------------------------------------------------
 Connection of the structure factor to the radial distribution function
@@ -199,7 +199,7 @@ the direct evaluation, leading to "cutoff ripples". The direct evaluation should
 therefore usually be preferred :footcite:p:`sedlmeier_spatial_2011`.
 
 To compare the RDF and the structure factor you can use
-:func:`maicos.lib.math.rdf_structure_factor`. For a detailed example take
+:func:`scatterkit.lib.math.rdf_structure_factor`. For a detailed example take
 a look at :ref:`howto-saxs`.
 
 References

@@ -3,7 +3,7 @@
 Library functions
 #################
 
-.. automodule:: maicos.lib
+.. automodule:: scatterkit.lib
 
 .. toctree::
    :titlesonly:
