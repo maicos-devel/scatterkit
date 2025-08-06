@@ -12,3 +12,5 @@ Mathematical helper functions
     :members:
     :undoc-members:
     :show-inheritance:
+
+.. footbibliography::
