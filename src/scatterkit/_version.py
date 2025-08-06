@@ -53,7 +53,7 @@ def get_config() -> VersioneerConfig:
     cfg.style = "pep440"
     cfg.tag_prefix = "v"
     cfg.parentdir_prefix = "None"
-    cfg.versionfile_source = "src/maicos/_version.py"
+    cfg.versionfile_source = "src/scatterkit/_version.py"
     cfg.verbose = False
     return cfg
 

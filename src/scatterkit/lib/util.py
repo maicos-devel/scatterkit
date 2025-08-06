@@ -120,7 +120,7 @@ def _render_docs(func: Callable, doc_dict: dict = DOC_DICT) -> Callable:
 def render_docs(func: Callable) -> Callable:
     """Replace all template phrases in the functions docstring.
 
-    Keys for the replacement are taken from in :attr:`maicos.lib.util.DOC_DICT`.
+    Keys for the replacement are taken from in :attr:`scatterkit.lib.util.DOC_DICT`.
 
     Parameters
     ----------

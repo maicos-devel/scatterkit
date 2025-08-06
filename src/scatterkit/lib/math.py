@@ -29,7 +29,7 @@ def atomic_form_factor(q: float, element: str) -> float:
         The atomic form factor should not be confused with the atomic scattering factor
         or intensity (often anonymously called form factor). The scattering intensity
         depends strongly on the distribution of atoms and can be computed using
-        :class:`maicos.Saxs`.
+        :class:`scatterkit.Saxs`.
 
     Here, :math:`f(q)` is computed in terms of the scattering vector as
 
@@ -41,7 +41,7 @@ def atomic_form_factor(q: float, element: str) -> float:
     :footcite:t:`princeInternationalTablesCrystallography2004` and taken from the `TU
     Graz
     <https://lampz.tugraz.at/~hadley/ss1/crystaldiffraction/atomicformfactors/formfactors.php>`_
-    and stored in :obj:`maicos.lib.tables.CM_parameters`.
+    and stored in :obj:`scatterkit.lib.tables.CM_parameters`.
 
     Parameters
     ----------
@@ -49,7 +49,7 @@ def atomic_form_factor(q: float, element: str) -> float:
         The magnitude of the scattering vector in reciprocal angstroms (1/Å).
     element : str
         The element for which the atomic form factor is calculated. Known elements are
-        listed in the :attr:`maicos.lib.tables.elements` set. United-atom models such as
+        listed in the :attr:`scatterkit.lib.tables.elements` set. United-atom models such as
         ``"CH1"``, ``"CH2"``, ``"CH3"``, ``"CH4"``, ``"NH1"``, ``"NH2"``, and ``"NH3"``
         are also supported.
 
