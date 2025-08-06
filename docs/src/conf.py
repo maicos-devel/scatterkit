@@ -211,4 +211,5 @@ intersphinx_mapping = {
     "MDAnalysis": ("https://docs.mdanalysis.org/stable/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
     "python": ("https://docs.python.org/3/", None),
+    "maicos": ("https://maicos-analysis.org/stable/", None),
 }

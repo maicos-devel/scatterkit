@@ -1,5 +1,5 @@
-What is MAICoS
-==============
+What is Scatterkit
+==================
 
 .. include:: ../../../README.rst
    :start-after: inclusion-readme-intro-start

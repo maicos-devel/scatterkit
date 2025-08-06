@@ -1,8 +1,8 @@
 Scatterkit Documentation
 ========================
 
-This documentation covers everything you need to know about Scatterkit, the Molecular
-Analysis for Interfacial and Confined Systems toolkit. There are five sections:
+This documentation covers everything you need to know about Scatterkit.
+There are five sections:
 
 - :ref:`userdoc-get-started`
 - :ref:`userdoc-how-to`

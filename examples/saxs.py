@@ -10,13 +10,13 @@
 Small-angle X-ray scattering
 ============================
 
-Small-angle X-ray scattering (SAXS) can be extracted using MAICoS. To follow this how-to
+Small-angle X-ray scattering (SAXS) can be extracted using Scatterkit. To follow this how-to
 guide, you should download the :download:`topology <water.tpr>` and the
 :download:`trajectory <water.trr>` files of the water system.
 
 For more details on the theory see :ref:`saxs-explanations`.
 
-First, we import Matplotlib, MDAnalysis, NumPy and MAICoS:
+First, we import Matplotlib, MDAnalysis, NumPy and Scatterkit:
 """  # noqa: D415
 # %%
 
@@ -47,7 +47,7 @@ group_H = u.select_atoms("type H*")
 # Extract small angle x-ray scattering (SAXS) intensities
 # -------------------------------------------------------
 #
-# Let us use the :class:`scatterkit.Saxs` class of MAICoS and apply it to all atoms in the
+# Let us use the :class:`scatterkit.Saxs` class of Scatterkit and apply it to all atoms in the
 # system:
 
 saxs = scatterkit.Saxs(u.atoms).run(stop=30)
