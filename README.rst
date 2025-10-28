@@ -5,7 +5,25 @@ Scatterkit
 
 .. inclusion-readme-intro-start
 
-Scatterkit does SAXS analysis of molecular dynamics simulations.
+**Scatterkit** is an object-oriented python toolkit for analysing scattering of
+fluids from molecular simulations. Combined with MDAnalysis_, 
+Scatterkit can be used to extract X-ray scattering data from trajectory files, 
+including LAMMPS, GROMACS, CHARMM or NAMD data. Scatterkit is open source and is
+released under the GNU general public license v3.0.
+
+Scatterkit is a tool for beginners of molecular simulations with no prior Python experience.
+For these users Scatterkit provides a descriptive command line interface. Also experienced
+users can use the Python API for their day to day analysis. 
+
+Scatterkit is maintained by the MAICoS developer team.
+Keep up to date with Scatterkit news by following us on Twitter_. If you find an issue, you
+can report it on GitHub_. You can also join the developer team on Discord_ to discuss
+possible improvements and usages of Scatterkit.
+
+.. _`MDAnalysis`: https://www.mdanalysis.org
+.. _`Twitter`: https://twitter.com/maicos_analysis
+.. _`GitHub`: https://github.com/maicos-devel/scatterkit
+.. _`Discord`: https://discord.gg/mnrEQWVAed
 
 .. inclusion-readme-intro-end
 
