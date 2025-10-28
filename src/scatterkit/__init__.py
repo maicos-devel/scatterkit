@@ -5,13 +5,9 @@ __authors__ = "MAICoS Developer Team"
 from ._version import get_versions
 from .saxs import Saxs
 
-__authors__ = "MAICoS Developer Team"
-#: Version information for MAICoS, following :pep:`440`
+#: Version information for Scatterkit, following :pep:`440`
 #: and `semantic versioning <http://semver.org/>`_.
 __version__ = get_versions()["version"]
 del get_versions
 
-
-__all__ = [
-    "Saxs",
-]
+__all__ = ["Saxs"]
