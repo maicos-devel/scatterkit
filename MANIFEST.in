@@ -1,3 +1,4 @@
+graft docs
 graft src
 
 include *.rst
@@ -8,11 +9,16 @@ prune examples
 prune tests
 prune developer
 prune .tox
+prune developer
+prune examples
+prune tests
+prune benchmarks
 
 exclude .codecov.yml
 exclude .gitattributes
 exclude .gitignore
 exclude .readthedocs.yml
 exclude tox.ini
+exclude asv.conf.json
 
 global-exclude *.py[cod] __pycache__/* *.so *.dylib
