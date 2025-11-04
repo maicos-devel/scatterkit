@@ -25,14 +25,14 @@ jobs:
         os: [ubuntu-24.04, ubuntu-24.04-arm, windows-2025, macos-13, macos-15]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v3.1.3
+        uses: pypa/cibuildwheel@v3.2.1
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: wheel-${{ matrix.os }}
           path: ./wheelhouse/*.whl
@@ -42,12 +42,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.14"
           check-latest: true
@@ -58,7 +58,7 @@ jobs:
       - name: Test build integrity and build sdist
         run: tox -e build
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: sdist
           path: dist/*.tar.gz
@@ -77,7 +77,7 @@ jobs:
 
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           path: dist
           merge-multiple: true
