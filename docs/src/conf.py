@@ -204,7 +204,7 @@ epub_exclude_files = ["search.html"]
 # -- Extension configuration -------------------------------------------------
 
 # Configuration for intersphinx: refer to the Python standard library
-# and other packages used by MAICoS
+# and other packages used by scatterkit
 intersphinx_mapping = {
     "scipy": ("https://docs.scipy.org/doc/scipy/", None),
     "matplotlib": ("https://matplotlib.org/stable/", None),
