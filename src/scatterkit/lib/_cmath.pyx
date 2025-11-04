@@ -18,7 +18,7 @@ from libc cimport math
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision
-cpdef tuple structure_factor(
+cpdef tuple compute_structure_factor(
         double[:,:] positions,
         double[:] dimensions,
         double qmin,

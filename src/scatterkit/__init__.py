@@ -13,7 +13,11 @@ __version__ = get_versions()["version"]
 del get_versions
 
 from .saxs import Saxs
+from .diporderstructurefactor import DiporderStructureFactor
+from .rdfdiporder import RDFDiporder
 
 __all__ = [
     "Saxs",
+    "DiporderStructureFactor",
+    "RDFDiporder"
 ]
