@@ -97,4 +97,3 @@ def line_of_water_molecules(
     u.trajectory.ts.has_velocities = True
     u.atoms.velocities += np.array(myvel)
     return u.select_atoms("name OW HW1 HW2")
-

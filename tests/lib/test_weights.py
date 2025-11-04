@@ -16,16 +16,17 @@ import pytest
 from numpy.testing import assert_allclose, assert_equal
 
 import scatterkit.lib.weights
-from maicos.lib.util import unit_vectors_planar
 
 sys.path.append(str(Path(__file__).parents[1]))
-from data import SPCE_GRO, SPCE_ITP # noqa: E402
+from data import SPCE_GRO, SPCE_ITP  # noqa: E402
 from util import line_of_water_molecules  # noqa: E402
+
 
 @pytest.fixture
 def ag_spce():
     """Atomgroup containing a single water molecule poiting in z-direction."""
     return mda.Universe(SPCE_ITP, SPCE_GRO).atoms
+
 
 def test_diporder_pair_weights_single(ag_spce):
     """Test that the weight of the same molecules is equal to one 1."""
@@ -33,6 +34,7 @@ def test_diporder_pair_weights_single(ag_spce):
         ag_spce, ag_spce, compound="residues"
     )
     assert_allclose(weights, 1)
+
 
 def test_diporder_pair_weights_line():
     """Test that the weight of the same molecules is equal to one 1."""
