@@ -11,7 +11,7 @@ CHANGELOG file
 
 
 Unreleased v0.0.1 (2025/08/05)
--------------------
+------------------------------
 Kira Fischer, Philip Loche, Henrik Stooß
 
 - Migrated ``RDFDiporder`` and ``DiporderStructureFactor`` from MAICoS
