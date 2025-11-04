@@ -9,8 +9,6 @@
 
 import re
 from collections.abc import Callable
-from pathlib import Path
-import sys
 
 DOC_REGEX_PATTERN = re.compile(r"\$\{([^\}]+)\}")
 
@@ -134,29 +132,3 @@ def render_docs(func: Callable) -> Callable:
 
     """
     return _render_docs(func, doc_dict=DOC_DICT)
-
-
-def scatterkit_banner(version: str = "", frame_char: str = "-") -> str:
-    """Prints ASCII banner resembling the MAICoS Logo with 80 chars width.
-
-    Parameters
-    ----------
-    version : str
-        Version string to add to the banner.
-    frame_char : str
-        Character used to as framing around the banner.
-
-    Returns
-    -------
-    banner : str
-        formatted banner
-
-    """
-    banner = rf"""
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@                           SCATTERKIT {version:^8}                                @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-"""
-    return banner.replace("@", frame_char)
-
-

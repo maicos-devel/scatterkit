@@ -10,8 +10,8 @@
 Small-angle X-ray scattering
 ============================
 
-Small-angle X-ray scattering (SAXS) can be extracted using Scatterkit. To follow this how-to
-guide, you should download the :download:`topology <water.tpr>` and the
+Small-angle X-ray scattering (SAXS) can be extracted using Scatterkit. To follow this
+how-to guide, you should download the :download:`topology <water.tpr>` and the
 :download:`trajectory <water.trr>` files of the water system.
 
 For more details on the theory see :ref:`saxs-explanations`.
@@ -24,8 +24,8 @@ import matplotlib.pyplot as plt
 import MDAnalysis as mda
 from MDAnalysis.analysis.rdf import InterRDF
 
-from scatterkit.lib.math import atomic_form_factor, rdf_structure_factor
 import scatterkit
+from scatterkit.lib.math import atomic_form_factor, rdf_structure_factor
 
 # %%
 # The `water` system consists of 510 water molecules in the liquid state. The
@@ -47,8 +47,8 @@ group_H = u.select_atoms("type H*")
 # Extract small angle x-ray scattering (SAXS) intensities
 # -------------------------------------------------------
 #
-# Let us use the :class:`scatterkit.Saxs` class of Scatterkit and apply it to all atoms in the
-# system:
+# Let us use the :class:`scatterkit.Saxs` class of Scatterkit and apply it to all atoms
+# in the system:
 
 saxs = scatterkit.Saxs(u.atoms).run(stop=30)
 
@@ -115,9 +115,9 @@ saxs_H = scatterkit.Saxs(group_H).run(stop=30)
 # %%
 # Let us plot the results for the structure factor, the squared atomic form factor as
 # well scattering intensities together. For computing the atomic form factor we will use
-# :func:`scatterkit.lib.math.atomic_form_factor`. Note that for the ``structure_factors``
-# and the ``scattering_intensities` we access the results directly from the ``results``
-# attribute without storing them in individual variables as before:
+# :func:`scatterkit.lib.math.atomic_form_factor`. Note that for the
+# ``structure_factors`` and the ``scattering_intensities` we access the results directly
+# from the ``results`` attribute without storing them in individual variables as before:
 
 fig2, ax2 = plt.subplots(nrows=3, sharex=True, layout="constrained")
 

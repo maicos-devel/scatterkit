@@ -1,19 +1,18 @@
 graft src
 
-include AUTHORS.rst
-include CHANGELOG.rst
-include README.md
-include MANIFEST.in
+include *.rst
+include LICENSE
 
-exclude example.ipynb
-
+prune docs
+prune examples
 prune tests
 prune developer
 prune .tox
 
+exclude .codecov.yml
 exclude .gitattributes
 exclude .gitignore
+exclude .readthedocs.yml
 exclude tox.ini
 
 global-exclude *.py[cod] __pycache__/* *.so *.dylib
-
