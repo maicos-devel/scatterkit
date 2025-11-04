@@ -1,0 +1,12 @@
+coverage:
+  ignore:
+    - "examples/.*"
+    - "src/scatterkit/_version.py"
+    - "tests/.*"
+  status:
+    project:
+      default:
+        target: 90%
+    patch: false
+
+comment: false
