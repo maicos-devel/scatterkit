@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Analyse scattering in molecular dynamics simulation."""
 
+from maicos.core import AnalysisBase
 from mdacli import cli
 
 from scatterkit import __version__
-from maicos.core import AnalysisBase
 
 
 def main():
