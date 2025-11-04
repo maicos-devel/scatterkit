@@ -49,9 +49,9 @@ def atomic_form_factor(q: float, element: str) -> float:
         The magnitude of the scattering vector in reciprocal angstroms (1/Å).
     element : str
         The element for which the atomic form factor is calculated. Known elements are
-        listed in the :attr:`scatterkit.lib.tables.elements` set. United-atom models such as
-        ``"CH1"``, ``"CH2"``, ``"CH3"``, ``"CH4"``, ``"NH1"``, ``"NH2"``, and ``"NH3"``
-        are also supported.
+        listed in the :attr:`scatterkit.lib.tables.elements` set. United-atom models
+        such as ``"CH1"``, ``"CH2"``, ``"CH3"``, ``"CH4"``, ``"NH1"``, ``"NH2"``, and
+        ``"NH3"`` are also supported.
 
         .. note::
 
@@ -98,6 +98,7 @@ def atomic_form_factor(q: float, element: str) -> float:
     )
 
     return form_factor.reshape(q2.shape)
+
 
 def rdf_structure_factor(
     rdf: np.ndarray, r: np.ndarray, density: float

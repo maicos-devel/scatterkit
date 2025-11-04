@@ -28,5 +28,3 @@ WATER_XTC_NVT = EXAMPLES / "water_nvt.xtc"
 # An SPC/E water molecule pointing in z-direction
 SPCE_ITP = DIR_PATH / "spce.itp"
 SPCE_GRO = DIR_PATH / "spce.gro"
-
-

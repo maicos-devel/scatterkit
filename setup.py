@@ -19,9 +19,8 @@ from distutils.sysconfig import customize_compiler
 from pathlib import Path
 
 import numpy as np
-from setuptools import Extension, setup
-
 import versioneer
+from setuptools import Extension, setup
 
 VERSION = versioneer.get_version()
 

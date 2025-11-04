@@ -7,6 +7,8 @@ include MANIFEST.in
 
 exclude example.ipynb
 
+prune docs
+prune examples
 prune tests
 prune developer
 prune .tox

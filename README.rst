@@ -15,8 +15,8 @@ Documentation
 For details, tutorials, and examples, visit our official `documentation`_. We also
 provide the `latest documentation`_ for the current development version of Scatterkit.
 
-.. _`documentation`: https://scatterkit.readthedocs.io
-.. _`latest documentation`: https://scatterkit.readthedocs.io/en/latest
+.. _`documentation`: https://maicos-devel.github.io/scatterkit
+.. _`latest documentation`: https://maicos-devel.github.io/scatterkit/latest
 
 .. inclusion-readme-installation-start
 
