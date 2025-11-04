@@ -19,7 +19,7 @@ v0.0.1 (2025/08/05)
 -------------------
 Kira Fischer, Philip Loche
 
-- Migrated RDFDiporder and DiporderStructureFactor from maicos to scatterkit
+- Migrated ``RDFDiporder`` and ``DiporderStructureFactor`` from MAICoS
 - Update to Python 3.14 support
 - Updated the docs with Whatis section
 - Migrated code from maicos to scatterkit
