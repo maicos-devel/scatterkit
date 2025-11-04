@@ -45,12 +45,7 @@ Install Scatterkit using `pip`_::
 
     pip install scatterkit
 
-Or with `conda`_ from conda-forge::
-
-    conda install -c conda-forge scatterkit
-
 .. _`pip`: https://pip.pypa.io
-.. _`conda`: https://www.anaconda.com
 
 .. inclusion-readme-installation-end
 
