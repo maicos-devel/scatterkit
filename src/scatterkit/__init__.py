@@ -1,4 +1,4 @@
-"""scatterkit: SAXS analysis of MD trajectories."""
+"""scatterkit: scattering analysis of MD trajectories."""
 
 __authors__ = "MAICoS Developer Team"
 
