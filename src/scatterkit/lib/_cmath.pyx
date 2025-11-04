@@ -29,7 +29,7 @@ cpdef tuple structure_factor(
     ):
     r"""Calculates scattering vectors and corresponding structure factors.
 
-    Use via ``from maicos.lib.math import structure_factor``
+    Use via ``from scatterkit.lib.math import structure_factor``
 
     The structure factors are calculated according to
 
