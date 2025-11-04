@@ -10,5 +10,6 @@ This sections describes Scatterkit, how to install it, and its most basic comman
 
     scatterkit
     installation
+    ../examples/usage-bash
     units
     changelog

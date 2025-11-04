@@ -11,7 +11,7 @@ import numpy as np
 from scipy.fftpack import dst
 
 from . import tables
-from ._cmath import structure_factor  # noqa: F401
+from ._cmath import compute_structure_factor  # noqa: F401
 
 # Max spacing variation in series that is allowed
 dt_dk_tolerance = 1e-8  # (~1e-10 suggested)
@@ -142,6 +142,51 @@ def rdf_structure_factor(
     if (abs(np.diff(r) - dr) > dr_tolerance).any():
         raise ValueError("Distance array `r` is not equally spaced!")
 
+    q = np.pi / r[-1] * np.arange(1, len(r) + 1)
+    struct_factor = 1 + 4 * np.pi * density * 0.5 * dst((rdf - 1) * r) / q * dr
+
+    return q, struct_factor
+
+
+def compute_rdf_structure_factor(
+    rdf: np.ndarray, r: np.ndarray, density: float
+) -> tuple[np.ndarray, np.ndarray]:
+    r"""Computes the structure factor based on the radial distribution function (RDF).
+
+    The structure factor :math:`S(q)` based on the RDF :math:`g(r)` is given by
+
+    .. math::
+        S(q) = 1 + 4 \pi \rho \int_0^\infty \mathrm{d}r r
+                         \frac{\sin(qr)}{q} (g(r) - 1)\,
+
+    where :math:`q` is the magnitude of the scattering vector. The calculation is
+    performed via a discrete sine transform as implemented in :func:`scipy.fftpack.dst`.
+
+    For an `example` take a look at :ref:`howto-saxs`.
+
+    Parameters
+    ----------
+    rdf : numpy.ndarray
+        radial distribution function
+    r : numpy.ndarray
+        equally spaced distance array on which rdf is defined
+    density : float
+        number density of particles
+
+    Returns
+    -------
+    q : numpy.ndarray
+        array of q points
+    struct_factor : numpy.ndarray
+        structure factor
+
+    """
+    drs = r[1:] - r[:-1]
+    diff = drs - np.mean(drs)
+    if not np.all(diff < 1e-6):
+        raise ValueError("Distance array `r` is not equally spaced!")
+
+    dr = r[1] - r[0]
     q = np.pi / r[-1] * np.arange(1, len(r) + 1)
     struct_factor = 1 + 4 * np.pi * density * 0.5 * dst((rdf - 1) * r) / q * dr
 

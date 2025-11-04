@@ -13,7 +13,7 @@ import MDAnalysis as mda
 import numpy as np
 from maicos.core import AnalysisBase
 
-from .lib.math import atomic_form_factor, structure_factor
+from .lib.math import atomic_form_factor, compute_structure_factor
 from .lib.util import render_docs
 
 
@@ -190,7 +190,7 @@ class Saxs(AnalysisBase):
                 group.atoms.positions / box
             )
 
-            scattering_vectors, structure_factors = structure_factor(
+            scattering_vectors, structure_factors = compute_structure_factor(
                 np.double(positions),
                 np.double(box),
                 self.qmin,

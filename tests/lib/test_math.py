@@ -150,7 +150,7 @@ class Test_sfactor:
     @pytest.mark.parametrize("qmax", [0.075, 0.1])
     def test_sfactor(self, ag, qS, qmin, qmax):
         """Test sfactor."""
-        q, S = scatterkit.lib.math.structure_factor(
+        q, S = scatterkit.lib.math.compute_structure_factor(
             np.double(ag.positions),
             np.double(ag.universe.dimensions)[:3],
             qmin,
@@ -182,7 +182,7 @@ class Test_sfactor:
 
     def test_sfactor_angle(self, ag):
         """Test sfactor angle."""
-        q, S = scatterkit.lib.math.structure_factor(
+        q, S = scatterkit.lib.math.compute_structure_factor(
             np.double(ag.positions),
             np.double(ag.universe.dimensions)[:3],
             0,  # qmin
@@ -292,4 +292,4 @@ def test_rdf_structure_factor_unequal_spacing():
     density = 1.0
     match = "Distance array `r` is not equally spaced!"
     with pytest.raises(ValueError, match=match):
-        scatterkit.lib.math.rdf_structure_factor(rdf=rdf, r=r, density=density)
+        scatterkit.lib.math.compute_rdf_structure_factor(rdf=rdf, r=r, density=density)
