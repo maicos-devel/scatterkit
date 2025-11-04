@@ -11,8 +11,8 @@ import logging
 
 import MDAnalysis as mda
 import numpy as np
-
 from maicos.core import AnalysisBase
+
 from .lib.math import atomic_form_factor, compute_structure_factor
 from .lib.util import render_docs
 

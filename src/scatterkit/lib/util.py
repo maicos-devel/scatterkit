@@ -9,8 +9,6 @@
 
 import re
 from collections.abc import Callable
-from pathlib import Path
-import sys
 
 DOC_REGEX_PATTERN = re.compile(r"\$\{([^\}]+)\}")
 
@@ -158,5 +156,3 @@ def scatterkit_banner(version: str = "", frame_char: str = "-") -> str:
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 """
     return banner.replace("@", frame_char)
-
-

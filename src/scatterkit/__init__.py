@@ -12,12 +12,8 @@ __authors__ = "MAICoS Developer Team"
 __version__ = get_versions()["version"]
 del get_versions
 
-from .saxs import Saxs
 from .diporderstructurefactor import DiporderStructureFactor
 from .rdfdiporder import RDFDiporder
+from .saxs import Saxs
 
-__all__ = [
-    "Saxs",
-    "DiporderStructureFactor",
-    "RDFDiporder"
-]
+__all__ = ["Saxs", "DiporderStructureFactor", "RDFDiporder"]

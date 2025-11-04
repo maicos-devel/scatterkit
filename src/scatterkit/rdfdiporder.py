@@ -11,10 +11,10 @@ import logging
 
 import MDAnalysis as mda
 import numpy as np
-from MDAnalysis.lib import distances
-
 from maicos.core import AnalysisBase
 from maicos.lib.util import get_center, render_docs
+from MDAnalysis.lib import distances
+
 from .lib.weights import diporder_pair_weights
 
 

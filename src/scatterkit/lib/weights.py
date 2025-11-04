@@ -9,7 +9,7 @@
 
 import MDAnalysis as mda
 import numpy as np
-from scipy import constants
+
 
 def diporder_pair_weights(
     g1: mda.AtomGroup, g2: mda.AtomGroup, compound: str
@@ -22,4 +22,3 @@ def diporder_pair_weights(
     dipoles_2 /= np.linalg.norm(dipoles_2, axis=1)[:, np.newaxis]
 
     return dipoles_1 @ dipoles_2.T
-

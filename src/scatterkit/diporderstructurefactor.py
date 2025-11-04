@@ -11,11 +11,11 @@ import logging
 
 import MDAnalysis as mda
 import numpy as np
-
 from maicos.core import AnalysisBase
-from .lib.math import compute_structure_factor
 from maicos.lib.util import get_center, render_docs, unit_vectors_planar
 from maicos.lib.weights import diporder_weights
+
+from .lib.math import compute_structure_factor
 
 
 @render_docs

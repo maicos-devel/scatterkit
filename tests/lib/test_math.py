@@ -13,13 +13,13 @@ from pathlib import Path
 import MDAnalysis as mda
 import numpy as np
 import pytest
-from numpy.testing import assert_allclose, assert_equal
+from numpy.testing import assert_allclose
 
 import scatterkit.lib.math
 import scatterkit.lib.util
 
 sys.path.append(str(Path(__file__).parents[1]))
-from data import SPCE_GRO, SPCE_ITP, WATER_GRO_NPT, WATER_TPR_NPT  # noqa: E402
+from data import WATER_GRO_NPT, WATER_TPR_NPT  # noqa: E402
 
 
 class Test_sfactor:

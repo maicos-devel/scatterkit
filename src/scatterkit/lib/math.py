@@ -99,6 +99,7 @@ def atomic_form_factor(q: float, element: str) -> float:
 
     return form_factor.reshape(q2.shape)
 
+
 def rdf_structure_factor(
     rdf: np.ndarray, r: np.ndarray, density: float
 ) -> tuple[np.ndarray, np.ndarray]:
@@ -146,6 +147,7 @@ def rdf_structure_factor(
 
     return q, struct_factor
 
+
 def compute_rdf_structure_factor(
     rdf: np.ndarray, r: np.ndarray, density: float
 ) -> tuple[np.ndarray, np.ndarray]:
@@ -179,9 +181,9 @@ def compute_rdf_structure_factor(
         structure factor
 
     """
-    drs = r[1:] - r[:-1] 
-    diff = (drs - np.mean(drs))
-    if not np.all(diff < 1e-6): 
+    drs = r[1:] - r[:-1]
+    diff = drs - np.mean(drs)
+    if not np.all(diff < 1e-6):
         raise ValueError("Distance array `r` is not equally spaced!")
 
     dr = r[1] - r[0]

@@ -7,14 +7,15 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Tests for the utilities."""
 
-import pytest
-from numpy.testing import assert_allclose, assert_equal
 import sys
 from pathlib import Path
+
+import pytest
 
 import scatterkit.lib.util
 
 sys.path.append(str(Path(__file__).parents[1]))
+
 
 def test_banner():
     """Test banner string by checking some necesarry features.
@@ -31,7 +32,9 @@ def test_banner():
     assert scatterkit.lib.util.scatterkit_banner().endswith("\n")
     # Check for correct length of lines (80 characters excluding top and bottom)
     # Also add in a long version string to check that it doesn't overflow
-    for line in scatterkit.lib.util.scatterkit_banner(version="v1.10.11").split("\n")[1:-1]:
+    for line in scatterkit.lib.util.scatterkit_banner(version="v1.10.11").split("\n")[
+        1:-1
+    ]:
         assert len(line) == 80
     # Check that the version is correctly inserted
     assert "v0.0.1" in scatterkit.lib.util.scatterkit_banner(version="v0.0.1")
