@@ -264,7 +264,9 @@ fig.tight_layout()
 # module.
 
 
-diporder_structure_factors = scatterkit.DiporderStructureFactor(atomgroup=u.atoms, dq=0.05)
+diporder_structure_factors = scatterkit.DiporderStructureFactor(
+    atomgroup=u.atoms, dq=0.05
+)
 diporder_structure_factors.run()
 
 # %%

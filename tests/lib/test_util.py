@@ -16,6 +16,7 @@ import scatterkit.lib.util
 
 sys.path.append(str(Path(__file__).parents[1]))
 
+
 @pytest.mark.parametrize(
     ("doc", "new_doc"),
     [

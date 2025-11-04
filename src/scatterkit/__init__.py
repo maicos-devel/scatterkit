@@ -3,7 +3,6 @@
 __authors__ = "MAICoS Developer Team"
 
 from ._version import get_versions
-
 from .diporderstructurefactor import DiporderStructureFactor
 from .rdfdiporder import RDFDiporder
 from .saxs import Saxs
