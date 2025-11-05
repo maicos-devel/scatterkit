@@ -14,7 +14,7 @@ Unreleased v0.0.1 (2025/08/05)
 ------------------------------
 Kira Fischer, Philip Loche, Henrik Stooß
 
-- Migrated ``RDFDiporder`` and ``DiporderStructureFactor`` from MAICoS
+- Migrate ``RDFDiporder`` and ``DiporderStructureFactor`` from MAICoS
 - Update the documentation (#8)
 - Update to Python 3.14 support
 - Updated the docs with Whatis section
