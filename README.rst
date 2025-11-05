@@ -64,6 +64,10 @@ Currently, Scatterkit supports the following analysis modules (alphabetically):
      - Description
    * - SAXS
      - Small angle X-ray scattering
+   * - DiporderStructureFactor
+     - Structure factor for dipoles
+   * - RDFDiporder
+     - Spherical radial distribution function between dipoles
 
 .. inclusion-marker-modules-end
 
