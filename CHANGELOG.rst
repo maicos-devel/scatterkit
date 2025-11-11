@@ -10,8 +10,8 @@ CHANGELOG file
     use tabs but use spaces for formatting
 
 
-Unreleased
-----------
+v0.1 (2025/11/11)
+-----------------
 Kira Fischer, Philip Loche, Henrik Stooß
 
 - Migrate ``RDFDiporder`` and ``DiporderStructureFactor`` from MAICoS
