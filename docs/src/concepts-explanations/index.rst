@@ -9,3 +9,4 @@ This section provides the theory behind some of the most complex analysis module
     :maxdepth: 1
 
     saxs
+    qens
