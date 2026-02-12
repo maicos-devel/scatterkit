@@ -14,6 +14,7 @@ Unreleased
 ----------
 Kira Fischer, Philip Loche, Henrik Stooß
 
+- Removed versioneer and switched to setuptools_scm for version management (#16)
 - Migrate ``RDFDiporder`` and ``DiporderStructureFactor`` from MAICoS
 - Update the documentation (#8)
 - Update to Python 3.14 support
