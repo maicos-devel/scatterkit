@@ -9,12 +9,16 @@ CHANGELOG file
   - keep the format consistent (79 char width, Y/M/D date format) and do not
     use tabs but use spaces for formatting
 
-
 Unreleased
 ----------
-Kira Fischer, Philip Loche, Henrik Stooß
+Henrik Stooß
 
 - Removed versioneer and switched to setuptools_scm for version management (#16)
+
+v0.1 (2025/11/11)
+-----------------
+Kira Fischer, Philip Loche, Henrik Stooß
+
 - Migrate ``RDFDiporder`` and ``DiporderStructureFactor`` from MAICoS
 - Update the documentation (#8)
 - Update to Python 3.14 support
