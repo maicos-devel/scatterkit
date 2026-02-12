@@ -9,6 +9,11 @@ CHANGELOG file
   - keep the format consistent (79 char width, Y/M/D date format) and do not
     use tabs but use spaces for formatting
 
+Unreleased
+----------
+Henrik Stooß
+
+- Migrate the doc dict over from MAICoS (#15)
 
 v0.1 (2025/11/11)
 -----------------
