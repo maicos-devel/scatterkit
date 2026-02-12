@@ -97,6 +97,32 @@ qmax : float
     Ending q (1/Å)
 dq : float
     bin_width (1/Å)""",
+    PDF_PARAMETERS="""g1 : MDAnalysis.core.groups.AtomGroup
+    First AtomGroup.
+g2 : MDAnalysis.core.groups.AtomGroup
+    Second AtomGroup.""",
+    BIN_WIDTH_PARAMETER="""bin_width : float
+    Width of the bins (in Å).""",
+    RADIAL_CLASS_PARAMETERS="""rmin : float
+    Minimal radial coordinate relative to the center of mass of the refgroup for
+    evaluation (in Å).
+rmax : float
+    Maximal radial coordinate relative to the center of mass of the refgroup for
+    evaluation (in Å).
+
+    If ``rmax=None``, the box extension is taken.""",
+    BIN_METHOD_PARAMETER="""bin_method : {``"com"``, ``"cog"``, ``"coc"``}
+    Method for the position binning.
+
+    The possible options are center of mass (``"com"``), center of geometry (``"cog"``),
+    and center of charge (``"coc"``).""",
+    GROUPING_PARAMETER="""grouping : {``"atoms"``, ``"residues"``, ``"segments"``, ``"molecules"``, ``"fragments"``}
+    Atom grouping for the calculations.
+
+    The possible grouping options are the atom positions (in the case where
+    ``grouping="atoms"``) or the center of mass of the specified grouping unit (in the
+    case where ``grouping="residues"``, ``"segments"``, ``"molecules"`` or
+    ``"fragments"``).""",  # noqa: E501
 )
 """Dictionary containing the keys and the actual docstring used by :func:`scatterkit.lib.util.render_docs`.
 

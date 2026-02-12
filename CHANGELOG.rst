@@ -14,6 +14,7 @@ Unreleased
 Henrik Stooß
 
 - Removed versioneer and switched to setuptools_scm for version management (#16)
+- Migrate the doc dict over from MAICoS (#15)
 
 v0.1 (2025/11/11)
 -----------------
