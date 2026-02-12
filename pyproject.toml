@@ -151,4 +151,4 @@ docstring-code-format = true
 where = ["src"]
 
 [tool.setuptools_scm]
-version_file = "src/maicos/_version.py"
+version_file = "src/scatterkit/_version.py"
