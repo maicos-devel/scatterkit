@@ -12,9 +12,8 @@ requires = [
     # disabling build isolation.
     "numpy>=2.0.0",
     # Set to minimum version of setuptools that allows pyproject.toml
-    "setuptools>=77",
-    "setuptools-git-versioning<2",
-    "versioneer[toml]",
+    "setuptools>=80",
+    "setuptools_scm >= 8",
     "wheel",
 ]
 build-backend = "setuptools.build_meta"
@@ -98,7 +97,7 @@ addopts = [
 ]
 
 [tool.ruff]
-exclude = ["versioneer.py", "docs/src/examples/**", "src/scatterkit/_version.py"]
+exclude = ["docs/src/examples/**", "src/scatterkit/_version.py"]
 line-length = 88
 
 [tool.ruff.lint]
@@ -151,9 +150,5 @@ docstring-code-format = true
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.versioneer]
-VCS = "git"
-style = "pep440"
-versionfile_source = "src/scatterkit/_version.py"
-versionfile_build = "scatterkit/_version.py"
-tag_prefix = "v"
+[tool.setuptools_scm]
+version_file = "src/scatterkit/_version.py"

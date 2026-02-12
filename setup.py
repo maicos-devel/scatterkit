@@ -19,10 +19,7 @@ from distutils.sysconfig import customize_compiler
 from pathlib import Path
 
 import numpy as np
-import versioneer
 from setuptools import Extension, setup
-
-VERSION = versioneer.get_version()
 
 
 def hasfunction(cc, funcname, include=None, extra_postargs=None):
@@ -120,4 +117,4 @@ if __name__ == "__main__":
                 if not (Path(source).exists() and os.access(source, os.R_OK)):
                     raise OSError(f"Source file {source!r} not found.")
 
-    setup(cmdclass=versioneer.get_cmdclass(), version=VERSION, ext_modules=extensions)
+    setup(use_scm_version=True, ext_modules=extensions)
