@@ -90,7 +90,6 @@ if __name__ == "__main__":
 
     has_openmp = detect_openmp()
 
-
     # There are two cases to consider when running setup.py:
     # 1. We are building from source, so we need cython to generate the .c files
     #    from the .pyx files.
