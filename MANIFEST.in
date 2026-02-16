@@ -7,6 +7,7 @@ prune docs
 prune examples
 prune tests
 prune developer
+prune .github
 
 exclude .codecov.yml
 exclude .gitattributes
