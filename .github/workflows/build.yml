@@ -31,7 +31,7 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v3.3.1
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: wheel-${{ matrix.os }}
           path: ./wheelhouse/*.whl
@@ -57,7 +57,7 @@ jobs:
       - name: Test build integrity and build sdist
         run: tox -e build
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: sdist
           path: dist/*.tar.gz
@@ -76,7 +76,7 @@ jobs:
 
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           path: dist
           merge-multiple: true
