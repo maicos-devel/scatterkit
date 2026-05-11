@@ -29,8 +29,8 @@ def _generate_q_vectors(
     qmax: float,
     dq: float,
     max_q_vectors: int | None = None,
-) -> tuple[np.ndarray, np.ndarray, list[np.ndarray]]:
-    """Generate q-vectors grouped into shells by magnitude.
+) -> tuple[np.ndarray, list[np.ndarray]]:
+    """Generate q-vectors grouped into non-empty shells by magnitude.
 
     All q-vectors compatible with the simulation box that fall within the
     requested q-range are generated deterministically from Miller indices.
@@ -55,25 +55,22 @@ def _generate_q_vectors(
 
     Returns
     -------
-    q_bin_centers : numpy.ndarray
-        Center of each q-shell.
     q_bin_values : numpy.ndarray
-        Mean |q| of vectors actually used in each shell.
+        Mean :math:`|q|` of the vectors actually used in each non-empty shell.
     q_vectors_per_shell : list of numpy.ndarray
-        List of arrays, each of shape ``(n_selected, 3)``, containing the
-        q-vectors for that shell.
+        For each non-empty shell, an ``(n_selected, 3)`` array of q-vectors.
 
     """
+    # Under PBC, only q = 2π n / L for integer Miller indices n = (h, k, l)
+    # are allowed. Enumerate every combination whose |q| can reach qmax.
     q_factor = 2 * np.pi / box_lengths  # (3,)
     max_n = np.ceil(qmax / q_factor).astype(int)
 
-    # Generate all Miller index combinations (excluding (0,0,0))
     hh = np.arange(-max_n[0], max_n[0] + 1)
     kk = np.arange(-max_n[1], max_n[1] + 1)
     ll = np.arange(-max_n[2], max_n[2] + 1)
     miller = np.array(np.meshgrid(hh, kk, ll, indexing="ij")).reshape(3, -1).T
-    nonzero = np.any(miller != 0, axis=1)
-    miller = miller[nonzero]
+    miller = miller[np.any(miller != 0, axis=1)]  # drop (0, 0, 0)
 
     q_vecs = miller * q_factor[np.newaxis, :]  # (N, 3)
     q_mags = np.linalg.norm(q_vecs, axis=1)
@@ -84,31 +81,27 @@ def _generate_q_vectors(
 
     n_shells = int(np.ceil((qmax - qmin) / dq))
     q_bin_edges = np.linspace(qmin, qmin + n_shells * dq, n_shells + 1)
-    q_bin_centers = 0.5 * (q_bin_edges[:-1] + q_bin_edges[1:])
     shell_indices = np.digitize(q_mags, q_bin_edges) - 1
 
-    q_vectors_per_shell = []
-    q_bin_values = np.zeros(n_shells)
-
+    q_vectors_per_shell: list[np.ndarray] = []
+    q_bin_values: list[float] = []
     for i_shell in range(n_shells):
         in_shell = shell_indices == i_shell
-        vecs_in_shell = q_vecs[in_shell]
-        mags_in_shell = q_mags[in_shell]
-
-        if len(vecs_in_shell) == 0:
-            q_vectors_per_shell.append(np.empty((0, 3)))
+        if not in_shell.any():
             continue
+        vecs = q_vecs[in_shell]
+        mags = q_mags[in_shell]
 
-        if max_q_vectors is not None and len(vecs_in_shell) > max_q_vectors:
-            stride = len(vecs_in_shell) // max_q_vectors
-            selected = np.arange(0, len(vecs_in_shell), stride)[:max_q_vectors]
-            vecs_in_shell = vecs_in_shell[selected]
-            mags_in_shell = mags_in_shell[selected]
+        if max_q_vectors is not None and len(vecs) > max_q_vectors:
+            stride = len(vecs) // max_q_vectors
+            sel = np.arange(0, len(vecs), stride)[:max_q_vectors]
+            vecs = vecs[sel]
+            mags = mags[sel]
 
-        q_vectors_per_shell.append(vecs_in_shell)
-        q_bin_values[i_shell] = np.mean(mags_in_shell)
+        q_vectors_per_shell.append(vecs)
+        q_bin_values.append(float(np.mean(mags)))
 
-    return q_bin_centers, q_bin_values, q_vectors_per_shell
+    return np.asarray(q_bin_values), q_vectors_per_shell
 
 
 @render_docs
@@ -131,7 +124,8 @@ class Qens(AnalysisBase):
     memory; lag times are logarithmically spaced.
 
     For each q-shell, all q-vector orientations compatible with the simulation
-    box are used and averaged (powder averaging).
+    box are used and averaged (powder averaging). Requires an orthorhombic
+    simulation cell.
 
     Parameters
     ----------
@@ -156,7 +150,7 @@ class Qens(AnalysisBase):
     results.lag_times : numpy.ndarray
         Lag times in the same time unit as the trajectory.
     results.q_values : numpy.ndarray
-        Scattering vector magnitudes for each q-shell.
+        Scattering vector magnitudes for each non-empty q-shell.
     results.F_s : numpy.ndarray
         Incoherent intermediate scattering function, shape ``(n_q, n_tau)``.
 
@@ -203,28 +197,36 @@ class Qens(AnalysisBase):
             "Analysis of the incoherent intermediate scattering function F_s(q, t)."
         )
 
-        box = np.diag(mda.lib.mdamath.triclinic_vectors(self._universe.dimensions))
-
-        self._q_bin_centers, self._q_bin_values, self._q_vectors_per_shell = (
-            _generate_q_vectors(
-                box_lengths=box,
-                qmin=self.qmin,
-                qmax=self.qmax,
-                dq=self.dq,
-                max_q_vectors=self.max_q_vectors,
+        # The Miller-index q-grid in `_generate_q_vectors` assumes axis-aligned
+        # cell vectors; a triclinic cell would need the full reciprocal basis.
+        cell = mda.lib.mdamath.triclinic_vectors(self._universe.dimensions)
+        if not np.allclose(cell - np.diag(np.diag(cell)), 0):
+            raise NotImplementedError(
+                "Qens currently supports only orthorhombic simulation cells."
             )
+        box = np.diag(cell)
+
+        self._q_bin_values, self._q_vectors_per_shell = _generate_q_vectors(
+            box_lengths=box,
+            qmin=self.qmin,
+            qmax=self.qmax,
+            dq=self.dq,
+            max_q_vectors=self.max_q_vectors,
         )
 
-        # Flatten q-vectors and remember which shell each came from.
-        all_q_vecs = [qv for qv in self._q_vectors_per_shell if len(qv) > 0]
-        if all_q_vecs:
-            self._all_q_vecs = np.vstack(all_q_vecs)  # (total_q, 3)
+        # `_all_q_vecs` is the flat (total_q, 3) view we feed into the
+        # correlator; `_shell_of_q[i]` records which shell row i came from so
+        # we can powder-average per-q correlations within each shell in
+        # `_conclude`.
+        if self._q_vectors_per_shell:
+            self._all_q_vecs = np.vstack(self._q_vectors_per_shell)
+            self._shell_of_q = np.concatenate([
+                np.full(len(qv), i)
+                for i, qv in enumerate(self._q_vectors_per_shell)
+            ])
         else:
             self._all_q_vecs = np.empty((0, 3))
-
-        self._shell_of_q = np.concatenate(
-            [np.full(len(qv), i) for i, qv in enumerate(self._q_vectors_per_shell)]
-        ).astype(int) if all_q_vecs else np.empty(0, dtype=int)
+            self._shell_of_q = np.empty(0, dtype=int)
 
         logging.info(
             f"Streaming {len(self._all_q_vecs)} q-vectors across "
@@ -281,36 +283,39 @@ class Qens(AnalysisBase):
             return 0.0
 
         positions = self.atomgroup.positions  # (n_atoms, 3)
-        # phases: (n_atoms, total_q)
+        # phases[j, k] = exp(i q_k . r_j(t)). The base class correlates this
+        # element-wise, so every (atom, q) pair gets its own autocorrelation.
         self._corr.phases = np.exp(1j * (positions @ self._all_q_vecs.T))
         return 0.0
 
     def _conclude(self) -> None:
-        if not self._correlators or "phases" not in self.correlation:
+        if (
+            not self._correlators
+            or "phases" not in self.correlation
+            or len(self.times) < 2
+        ):
             logging.warning("No correlation data collected.")
             self.results.lag_times = np.array([])
             self.results.q_values = np.array([])
             self.results.F_s = np.array([])
             return
 
-        # correlation.phases: (n_lags, n_atoms, total_q), complex
-        # Average over atoms (axis=1), take real part: per-q F_s(t)
-        per_q = self.correlation.phases.mean(axis=1).real  # (n_lags, total_q)
-
-        # Average per-q correlations within each shell (powder average).
+        # correlation.phases has shape (n_lags, n_atoms, total_q), complex.
+        # Mean over atoms then real part gives the per-q-vector F_s; we then
+        # powder-average within each shell.
+        per_q = self.correlation.phases.mean(axis=1).real
         n_shells = len(self._q_vectors_per_shell)
-        n_tau = per_q.shape[0]
-        F_s_full = np.zeros((n_shells, n_tau))
+        F_s = np.zeros((n_shells, per_q.shape[0]))
         for i_shell in range(n_shells):
-            mask = self._shell_of_q == i_shell
-            if mask.any():
-                F_s_full[i_shell] = per_q[:, mask].mean(axis=1)
+            F_s[i_shell] = per_q[:, self._shell_of_q == i_shell].mean(axis=1)
 
-        active = np.array([len(qv) > 0 for qv in self._q_vectors_per_shell])
+        # self.lags arrives from MAiCoS in units of frame intervals; convert
+        # to physical time via the actually-sampled dt (which already reflects
+        # any user-supplied stride).
         dt = float(self.times[1] - self.times[0])
         self.results.lag_times = self.lags * dt
-        self.results.q_values = self._q_bin_values[active]
-        self.results.F_s = F_s_full[active]
+        self.results.q_values = self._q_bin_values
+        self.results.F_s = F_s
 
     @render_docs
     def save(self) -> None:
