@@ -203,13 +203,6 @@ class Qens(AnalysisBase):
             "Analysis of the incoherent intermediate scattering function F_s(q, t)."
         )
 
-        if self.n_frames > 1:
-            t0 = self._sliced_trajectory[0].time
-            t1 = self._sliced_trajectory[1].time
-            self._dt = t1 - t0
-        else:
-            self._dt = self._trajectory.dt if self._trajectory.dt > 0 else 1.0
-
         box = np.diag(mda.lib.mdamath.triclinic_vectors(self._universe.dimensions))
 
         self._q_bin_centers, self._q_bin_values, self._q_vectors_per_shell = (
@@ -314,7 +307,8 @@ class Qens(AnalysisBase):
                 F_s_full[i_shell] = per_q[:, mask].mean(axis=1)
 
         active = np.array([len(qv) > 0 for qv in self._q_vectors_per_shell])
-        self.results.lag_times = self.lags * self._dt
+        dt = float(self.times[1] - self.times[0])
+        self.results.lag_times = self.lags * dt
         self.results.q_values = self._q_bin_values[active]
         self.results.F_s = F_s_full[active]
 
