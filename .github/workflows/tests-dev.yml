@@ -27,3 +27,31 @@ jobs:
 
       - name: Run tests against MDAnalysis dev version
         run: tox -e tests-dev
+
+  tests-release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.14"]
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Check out latest release tag
+        run: git checkout $(git describe --tags --abbrev=0)
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install released scatterkit and test dependencies
+        run: |
+          python -m pip install scatterkit
+          python -m pip install -r tests/requirements.txt
+          python -m pip list
+
+      - name: Run tests against released versions
+        run: pytest
