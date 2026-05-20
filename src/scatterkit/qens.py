@@ -220,10 +220,9 @@ class Qens(AnalysisBase):
         # `_conclude`.
         if self._q_vectors_per_shell:
             self._all_q_vecs = np.vstack(self._q_vectors_per_shell)
-            self._shell_of_q = np.concatenate([
-                np.full(len(qv), i)
-                for i, qv in enumerate(self._q_vectors_per_shell)
-            ])
+            self._shell_of_q = np.concatenate(
+                [np.full(len(qv), i) for i, qv in enumerate(self._q_vectors_per_shell)]
+            )
         else:
             self._all_q_vecs = np.empty((0, 3))
             self._shell_of_q = np.empty(0, dtype=int)
