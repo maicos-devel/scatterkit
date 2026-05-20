@@ -57,7 +57,7 @@ maintainers = [
 name = "scatterkit"
 readme = "README.rst"
 requires-python = ">=3.11"
-dependencies = ["maicos>=0.11"]
+dependencies = ["maicos @ git+https://github.com/maicos-devel/maicos.git@Correlator"]
 
 [project.optional-dependencies]
 examples = ["matplotlib"]
