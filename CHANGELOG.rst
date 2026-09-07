@@ -9,6 +9,12 @@ CHANGELOG file
   - keep the format consistent (79 char width, Y/M/D date format) and do not
     use tabs but use spaces for formatting
 
+Unreleased
+----------
+Henrik Stooß
+
+- Bump the action-dependencies and fix formatting (#24)
+
 v0.1.1 (2026/05/12)
 -------------------
 Henrik Stooß
