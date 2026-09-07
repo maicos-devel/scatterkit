@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Copyright (c) 2025 Authors and contributors
 # (see the AUTHORS.rst file for the full list of names)
@@ -19,7 +18,7 @@ import scatterkit.lib.math
 import scatterkit.lib.util
 
 sys.path.append(str(Path(__file__).parents[1]))
-from data import WATER_GRO_NPT, WATER_TPR_NPT  # noqa: E402
+from data import WATER_GRO_NPT, WATER_TPR_NPT
 
 
 class Test_sfactor:

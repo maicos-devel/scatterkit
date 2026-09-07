@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Copyright (c) 2025 Authors and contributors
 # (see the AUTHORS.rst file for the full list of names)
@@ -34,12 +33,12 @@ def test_render_docs(doc, new_doc):
     def func():
         pass
 
-    DOC_DICT = dict(
-        TEST="test",
-        BLA="blu",
-        INNER="inner",
-        OUTER="desc with ${INNER}",
-    )
+    DOC_DICT = {
+        "TEST": "test",
+        "BLA": "blu",
+        "INNER": "inner",
+        "OUTER": "desc with ${INNER}",
+    }
 
     func.__doc__ = doc
     func_decorated = scatterkit.lib.util._render_docs(func, doc_dict=DOC_DICT)

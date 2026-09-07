@@ -9,4 +9,4 @@ from .diporderstructurefactor import DiporderStructureFactor
 from .rdfdiporder import RDFDiporder
 from .saxs import Saxs
 
-__all__ = ["Saxs", "DiporderStructureFactor", "RDFDiporder"]
+__all__ = ["DiporderStructureFactor", "RDFDiporder", "Saxs"]

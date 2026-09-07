@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Copyright (c) 2025 Authors and contributors
 # (see the AUTHORS.rst file for the full list of names)
@@ -215,11 +214,11 @@ class Saxs(AnalysisBase):
                 structure_factors = structure_factors[nonzeros]
                 scattering_intensities = scattering_intensities[nonzeros]
 
-                histogram_kwargs = dict(
-                    a=scattering_vectors,
-                    bins=self.n_bins,
-                    range=(self.qmin, self.qmax),
-                )
+                histogram_kwargs = {
+                    "a": scattering_vectors,
+                    "bins": self.n_bins,
+                    "range": (self.qmin, self.qmax),
+                }
                 structure_factors, _ = np.histogram(
                     weights=structure_factors, **histogram_kwargs
                 )

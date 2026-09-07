@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Copyright (c) 2025 Authors and contributors
 # (see the AUTHORS.rst file for the full list of names)
@@ -12,12 +11,14 @@ from collections.abc import Callable
 
 DOC_REGEX_PATTERN = re.compile(r"\$\{([^\}]+)\}")
 
-DOC_DICT = dict(
+DOC_DICT = {
     #####################
     # DESCRIPTION SECTION
     #####################
-    SAVE_METHOD_DESCRIPTION="Save results of analysis to file specified by ``output``.",
-    RUN_METHOD_DESCRIPTION="""Iterate over the trajectory.
+    "SAVE_METHOD_DESCRIPTION": (
+        "Save results of analysis to file specified by ``output``."
+    ),
+    "RUN_METHOD_DESCRIPTION": """Iterate over the trajectory.
 
 Parameters
 ----------
@@ -46,15 +47,15 @@ self : object
     ##########################
     # SINGLE PARAMETER SECTION
     ##########################
-    ATOMGROUP_PARAMETER="""atomgroup : MDAnalysis.core.groups.AtomGroup
+    "ATOMGROUP_PARAMETER": """atomgroup : MDAnalysis.core.groups.AtomGroup
     A :class:`~MDAnalysis.core.groups.AtomGroup` for which the calculations are
     performed.""",
-    OUTPUT_PARAMETER="""output : str
+    "OUTPUT_PARAMETER": """output : str
     Output filename.""",
     ###################################
     # MULTI/COMBINES PARAMETERS SECTION
     ###################################
-    BASE_CLASS_PARAMETERS="""refgroup : MDAnalysis.core.groups.AtomGroup
+    "BASE_CLASS_PARAMETERS": """refgroup : MDAnalysis.core.groups.AtomGroup
     Reference :class:`~MDAnalysis.core.groups.AtomGroup` used for the calculation. If
     ``refgroup`` is provided, the calculation is performed relative to the center of
     mass of the AtomGroup. If ``refgroup`` is :obj:`None` the calculations are performed
@@ -91,19 +92,19 @@ jitter : float
 concfreq : int
     When concfreq (for conclude frequency) is larger than ``0``, the conclude function
     is called and the output files are written every ``concfreq`` frames.""",
-    Q_SPACE_PARAMETERS="""qmin : float
+    "Q_SPACE_PARAMETERS": """qmin : float
     Starting q (1/Å)
 qmax : float
     Ending q (1/Å)
 dq : float
     bin_width (1/Å)""",
-    PDF_PARAMETERS="""g1 : MDAnalysis.core.groups.AtomGroup
+    "PDF_PARAMETERS": """g1 : MDAnalysis.core.groups.AtomGroup
     First AtomGroup.
 g2 : MDAnalysis.core.groups.AtomGroup
     Second AtomGroup.""",
-    BIN_WIDTH_PARAMETER="""bin_width : float
+    "BIN_WIDTH_PARAMETER": """bin_width : float
     Width of the bins (in Å).""",
-    RADIAL_CLASS_PARAMETERS="""rmin : float
+    "RADIAL_CLASS_PARAMETERS": """rmin : float
     Minimal radial coordinate relative to the center of mass of the refgroup for
     evaluation (in Å).
 rmax : float
@@ -111,19 +112,19 @@ rmax : float
     evaluation (in Å).
 
     If ``rmax=None``, the box extension is taken.""",
-    BIN_METHOD_PARAMETER="""bin_method : {``"com"``, ``"cog"``, ``"coc"``}
+    "BIN_METHOD_PARAMETER": """bin_method : {``"com"``, ``"cog"``, ``"coc"``}
     Method for the position binning.
 
     The possible options are center of mass (``"com"``), center of geometry (``"cog"``),
     and center of charge (``"coc"``).""",
-    GROUPING_PARAMETER="""grouping : {``"atoms"``, ``"residues"``, ``"segments"``, ``"molecules"``, ``"fragments"``}
+    "GROUPING_PARAMETER": """grouping : {``"atoms"``, ``"residues"``, ``"segments"``, ``"molecules"``, ``"fragments"``}
     Atom grouping for the calculations.
 
     The possible grouping options are the atom positions (in the case where
     ``grouping="atoms"``) or the center of mass of the specified grouping unit (in the
     case where ``grouping="residues"``, ``"segments"``, ``"molecules"`` or
     ``"fragments"``).""",  # noqa: E501
-)
+}
 """Dictionary containing the keys and the actual docstring used by :func:`scatterkit.lib.util.render_docs`.
 
     :meta hide-value:
