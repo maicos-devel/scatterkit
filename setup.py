@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Copyright (c) 2025 Authors and contributors
 # (see the AUTHORS.rst file for the full list of names)
@@ -49,7 +48,7 @@ def hasfunction(cc, funcname, include=None, extra_postargs=None):
                 [fname], output_dir=str(tmpdir), extra_postargs=extra_postargs
             )
             cc.link_executable(objects, str(tmpdir / "a.out"))
-        except Exception:
+        except Exception:  # noqa: BLE001 -- any failure means the function is unavailable
             return False
         return True
     finally:

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #
 # Copyright (c) 2025 Authors and contributors
 # (see the AUTHORS.rst file for the full list of names)
@@ -19,7 +18,7 @@ from scatterkit import DiporderStructureFactor, RDFDiporder
 from scatterkit.lib.math import compute_rdf_structure_factor
 
 sys.path.append(str(Path(__file__).parents[1]))
-from data import WATER_TPR_NVT, WATER_XTC_NVT  # noqa: E402
+from data import WATER_TPR_NVT, WATER_XTC_NVT
 
 
 class TestDiporderStructureFactor:
