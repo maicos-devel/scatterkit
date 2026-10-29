@@ -114,7 +114,7 @@ class DiporderStructureFactor(AnalysisBase):
             weights = diporder_weights(
                 atomgroup=self.atomgroup,
                 grouping=self.wrap_compound,
-                order_parameter="cos_theta",
+                order_parameter="P1",
                 get_unit_vectors=get_unit_vectors,
             )
 

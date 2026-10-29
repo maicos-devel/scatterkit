@@ -13,6 +13,8 @@ Unreleased
 ----------
 Henrik Stooß
 
+- Fix ``DiporderStructureFactor`` for MAICoS 0.13, which renamed the
+  ``cos_theta`` order parameter to ``P1``, and require ``maicos>=0.13``
 - Bump the action-dependencies and fix formatting (#24)
 
 v0.1.1 (2026/05/12)
