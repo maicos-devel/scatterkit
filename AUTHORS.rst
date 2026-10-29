@@ -4,7 +4,7 @@
 Maintainers
 -----------
 Kira Fischer
-MAICoS Developer Team 
+MAICoS Developer Team
 
 Developers
 ----------

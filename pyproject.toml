@@ -81,10 +81,32 @@ ignore_missing_imports = true
 [tool.coverage.paths]
 source = ["src/scatterkit", "*/site-packages"]
 
+[tool.coverage.run]
+omit = [
+    "examples/*",
+    "src/scatterkit/_version.py",
+    "tests/*",
+    "tests/**/*",
+    "*/tests/*",
+    "*/tests/**/*",
+]
+
 [tool.coverage.report]
 skip_covered = true
 show_missing = true
-exclude_lines = ["if __name__ == .__main__.:"]
+exclude_lines = [
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "\\.\\.\\.",
+]
+omit = [
+    "examples/*",
+    "src/scatterkit/_version.py",
+    "tests/*",
+    "tests/**/*",
+    "*/tests/*",
+    "*/tests/**/*",
+]
 
 [tool.pytest.ini_options]
 testpaths = "tests"

@@ -6,15 +6,19 @@ CHANGELOG file
   - entries are sorted newest-first.
   - summarize sets of changes (don't reproduce every git log comment here).
   - don't ever delete anything.
-  - keep the format consistent (79 char width, Y/M/D date format) and do not
+  - keep the format consistent (88 char width, Y/M/D date format) and do not
     use tabs but use spaces for formatting
 
 Unreleased
 ----------
 Henrik Stooß
 
-- Fix ``DiporderStructureFactor`` for MAICoS 0.13, which renamed the
-  ``cos_theta`` order parameter to ``P1``, and require ``maicos>=0.13``
+- Fix ``DiporderStructureFactor`` for MAICoS 0.13, which renamed the ``cos_theta`` order
+  parameter to ``P1``, and require ``maicos>=0.13``
+- Align infrastructure with MAICoS 0.13: require ``MDAnalysisTests>=2.10.0``, use
+  ``tomllib`` for the docs, lint ``AUTHORS.rst`` and ``CHANGELOG.rst`` with sphinx-lint,
+  exclude tests and examples from coverage and drop the nonexistent ``cython`` extra
+  from the Read the Docs config
 - Bump the action-dependencies and fix formatting (#24)
 
 v0.1.1 (2026/05/12)
