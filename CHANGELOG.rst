@@ -13,6 +13,7 @@ Unreleased
 ----------
 Henrik Stooß
 
+- Add the GPL-3.0 ``LICENSE`` file
 - Fix ``DiporderStructureFactor`` for MAICoS 0.13, which renamed the ``cos_theta`` order
   parameter to ``P1``, and require ``maicos>=0.13``
 - Align infrastructure with MAICoS 0.13: require ``MDAnalysisTests>=2.10.0``, use
