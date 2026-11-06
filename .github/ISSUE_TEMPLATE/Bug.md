@@ -20,7 +20,7 @@ What happened instead. Add as much detail as you can. Include (copy and paste) s
 **Code to reproduce the behavior**
 
 <!--
-Show us how to reproduce the failiure. If you can, use trajectory files from the test data folder in `tests/data` or `https://github.com/maicos-devel/scatterkit/tree/main/tests/data`
+Show us how to reproduce the failiure. If you can, use trajectory files from the test data folder in `tests/data` or `https://github.com/atomistic-lab/scatterkit/tree/main/tests/data`
 
 You can also attach (small) files to the section below or add URLs where to download an archive with all necessary files.
 

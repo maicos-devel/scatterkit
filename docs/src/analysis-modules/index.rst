@@ -9,7 +9,7 @@ Once you understand the basic structure taught there, you can
 work with all modules. If not, feel free to raise an issue in GitHub_ or ask us on
 Discord_.
 
-.. _`GitHub`: https://github.com/maicos-devel/scatterkit/issues
+.. _`GitHub`: https://github.com/atomistic-lab/scatterkit/issues
 .. _`Discord`: https://discord.gg/mnrEQWVAed
 
 .. toctree::

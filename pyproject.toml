@@ -63,8 +63,8 @@ dependencies = ["maicos>=0.13"]
 examples = ["matplotlib"]
 
 [project.urls]
-repository = "https://github.com/maicos-devel/scatterkit"
-issues = "https://github.com/maicos-devel/scatterkit/issues"
+repository = "https://github.com/atomistic-lab/scatterkit"
+issues = "https://github.com/atomistic-lab/scatterkit/issues"
 
 [project.scripts]
 scatterkit = "scatterkit.__main__:main"
