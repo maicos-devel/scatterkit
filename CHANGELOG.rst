@@ -10,7 +10,7 @@ CHANGELOG file
     use tabs but use spaces for formatting
 
 v0.1.2 (2026/11/10)
-----------
+-------------------
 Henrik Stooß
 
 - Update GitHub URLs for the org rename ``maicos-devel`` -> ``atomistic-lab`` (#111)
