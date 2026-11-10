@@ -57,14 +57,14 @@ maintainers = [
 name = "scatterkit"
 readme = "README.rst"
 requires-python = ">=3.11"
-dependencies = ["maicos>=0.13"]
+dependencies = ["maicos==0.13"]
 
 [project.optional-dependencies]
 examples = ["matplotlib"]
 
 [project.urls]
-repository = "https://github.com/maicos-devel/scatterkit"
-issues = "https://github.com/maicos-devel/scatterkit/issues"
+repository = "https://github.com/atomistic-lab/scatterkit"
+issues = "https://github.com/atomistic-lab/scatterkit/issues"
 
 [project.scripts]
 scatterkit = "scatterkit.__main__:main"
